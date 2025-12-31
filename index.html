@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Bouncing Balls - Physics Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bouncing Balls</h1>
+
+        <div class="info">
+            <span>Palline: <strong id="ballCount">0</strong></span>
+            <span>Giroscopio: <strong id="gyroStatus">Non attivo</strong></span>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <button id="openModal" class="fab" title="Aggiungi pallina">+</button>
+        <button id="quickAdd" class="fab quick-add" title="Ricrea ultima pallina" style="display: none;">⚡</button>
+        <button id="clearAll" class="fab clear" title="Cancella tutto">🗑️</button>
+        <button id="enableGyro" class="fab gyro" title="Attiva giroscopio">📱</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Crea Nuova Pallina</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="control-group">
+                    <label for="size">Grandezza (5-50px):</label>
+                    <input type="range" id="size" min="5" max="50" value="20">
+                    <span id="sizeValue">20</span>px
+                </div>
+
+                <div class="control-group">
+                    <label for="speed">Velocità (1-10):</label>
+                    <input type="range" id="speed" min="1" max="10" value="5">
+                    <span id="speedValue">5</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="color">Colore:</label>
+                    <input type="color" id="color" value="#3498db">
+                </div>
+
+                <button id="addBall" class="btn-primary">Aggiungi Pallina</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
