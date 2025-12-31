@@ -57,7 +57,7 @@ class Game {
         this.gyroX = 0;
         this.gyroY = 0;
         this.gyroActive = false;
-        this.lastBallConfig = null;
+        this.lastBallConfig = { size: 20, speed: 5, color: '#00ff41' };
 
         this.modal = document.getElementById('modal');
 
@@ -66,6 +66,9 @@ class Game {
 
         this.setupControls();
         this.setupModal();
+
+        document.getElementById('quickAdd').style.display = 'flex';
+
         this.animate();
     }
 
