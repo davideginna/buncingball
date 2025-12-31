@@ -221,20 +221,6 @@ button.secondary:hover {
     background: #ff0000;
 }
 
-.fab.gyro {
-    bottom: 270px;
-    right: 30px;
-    border-color: #00ffff;
-    color: #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-    font-size: 1.8em;
-}
-
-.fab.gyro:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-    background: #00ffff;
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -385,12 +371,6 @@ button.secondary:hover {
         bottom: 150px;
         right: 20px;
         font-size: 1.2em;
-    }
-
-    .fab.gyro {
-        bottom: 215px;
-        right: 20px;
-        font-size: 1.4em;
     }
 
     .modal-header {

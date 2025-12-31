@@ -69,6 +69,8 @@ class Game {
 
         document.getElementById('quickAdd').style.display = 'flex';
 
+        this.requestGyroscope();
+
         this.animate();
     }
 
@@ -126,10 +128,6 @@ class Game {
             this.balls = [];
             this.updateBallCount();
         });
-
-        document.getElementById('enableGyro').addEventListener('click', () => {
-            this.requestGyroscope();
-        });
     }
 
     requestGyroscope() {
@@ -139,17 +137,16 @@ class Game {
                     if (permissionState === 'granted') {
                         this.enableGyroscope();
                     } else {
-                        alert('Permesso sensori negato. Controlla le impostazioni del browser.');
+                        console.log('Permesso sensori negato.');
                     }
                 })
                 .catch(err => {
                     console.error('Errore richiesta permesso:', err);
-                    alert('Errore nella richiesta del permesso: ' + err.message);
                 });
         } else if (window.DeviceOrientationEvent) {
             this.enableGyroscope();
         } else {
-            alert('I sensori di orientamento non sono supportati su questo dispositivo.');
+            console.log('Sensori di orientamento non supportati su questo dispositivo.');
         }
     }
 
@@ -168,7 +165,7 @@ class Game {
                     orientationDetected = true;
                     this.gyroActive = true;
                     document.getElementById('gyroStatus').textContent = 'Attivo';
-                    document.getElementById('gyroStatus').style.color = '#27ae60';
+                    document.getElementById('gyroStatus').style.color = '#00ff41';
                     console.log('Orientamento rilevato! Beta:', beta, 'Gamma:', gamma);
                 }
             }
@@ -186,7 +183,7 @@ class Game {
                         if (!this.gyroActive) {
                             this.gyroActive = true;
                             document.getElementById('gyroStatus').textContent = 'Attivo';
-                            document.getElementById('gyroStatus').style.color = '#27ae60';
+                            document.getElementById('gyroStatus').style.color = '#00ff41';
                             console.log('DeviceMotion attivato come fallback');
                         }
                     }
@@ -196,7 +193,7 @@ class Game {
 
         setTimeout(() => {
             if (!this.gyroActive) {
-                alert('Sensori non rilevati. Assicurati di:\n1. Essere su un dispositivo mobile\n2. Usare HTTPS (non http://)\n3. Aver dato il permesso nelle impostazioni del browser');
+                console.log('Sensori non rilevati. Il gioco funziona comunque senza giroscopio.');
             }
         }, 3000);
     }
